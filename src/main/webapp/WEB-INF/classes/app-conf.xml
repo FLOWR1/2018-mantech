@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<beans profile="development">
+		<util:properties id="url">
+			<prop key="server">10.20.200.201</prop>
+			<prop key="local">10.10.0.234</prop>
+		</util:properties>
+		
+		<util:properties id="config">
+			<!-- <prop key="license.path">/dev/root/accordion/license/license.lic</prop> -->
+			<!-- <prop key="template.path">/dev/root/accordion/templates</prop> -->
+			<prop key="deploy.url">#{url['local']}:8080</prop>
+			<prop key="jdbc.url">#{url['server']}:30050</prop>
+			<prop key="influx.url">#{url['server']}:30006</prop>
+			<prop key="jenkins.url">#{url['server']}:30061</prop>
+			<prop key="jenkins.password">accordion</prop>
+			<prop key="elastic.url">#{url['server']}</prop>
+			<prop key="elastic.port">30420</prop>
+			<prop key="topology.url">#{url['server']}:30071</prop>
+		</util:properties>
+	</beans>
+	
+	<beans profile="production">
+		<util:properties id="config">
+			<!-- <prop key="license.path">/root/accordion/license/license.lic</prop>
+			<prop key="template.path">/root/accordion/templates</prop> -->
+			<prop key="deploy.url">accordion.accordion:80</prop>
+			<prop key="jdbc.url">postgres.accordion:5432</prop>
+			<prop key="influx.url">monitoring-influxdb.kube-system:8086</prop>
+			<prop key="jenkins.url">jenkins.jenkins:80</prop>
+			<prop key="jenkins.password">redhat!@#</prop>
+			<prop key="elastic.url">elasticsearch-logging.kube-system</prop>
+			<prop key="elastic.port">9200</prop>
+			<prop key="topology.url">cluster-insight.accordion:5555</prop>
+		</util:properties>
+	</beans>
+</beans>

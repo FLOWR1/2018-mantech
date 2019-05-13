@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<taglib xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-jsptaglibrary_2_1.xsd"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        version="2.1">
+ 
+    <description>CommonUtil functions library</description>
+    <display-name>CommonUtil functions</display-name>
+    <tlib-version>1.1</tlib-version>
+    <short-name>cutil</short-name>
+    <uri>http://accordion.mantech.co.kr/jsp/commonutil</uri>
+ 
+    <function>
+        <name>getBuildItem</name>
+        <function-class>kr.co.mantech.accordion.widegetView.AppBuildStatue</function-class>
+        <function-signature>java.lang.String getBuildItem(java.lang.Object)</function-signature>
+    </function>
+    
+    <function>
+        <name>getDeployStatue</name>
+        <function-class>kr.co.mantech.accordion.widegetView.AppBuildStatue</function-class>
+        <function-signature>java.lang.String getDeployStatue(java.lang.String, java.lang.Object)</function-signature>
+    </function>  
+
+
+    <function>
+        <name>getPodCpuRate</name>
+        <function-class>kr.co.mantech.accordion.widegetView.AppComponent</function-class>
+        <function-signature>java.lang.String getPodCpuRate(java.lang.String)</function-signature>
+    </function>  
+
+    <function>
+        <name>getPodMemUsing</name>
+        <function-class>kr.co.mantech.accordion.widegetView.AppComponent</function-class>
+        <function-signature>java.lang.String getPodMemUsing(java.lang.String)</function-signature>
+    </function>  
+
+
+    
+</taglib>
+

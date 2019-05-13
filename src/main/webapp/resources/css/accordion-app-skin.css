@@ -1,0 +1,273 @@
+.app-row > div
+{
+	padding: 10px; 
+}
+
+.app-item {
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    border-bottom-left-radius : 15px;
+    border-bottom-right-radius : 15px;
+    box-shadow:0 0 10px gray;
+}
+
+
+
+.app-item .header {
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+    padding: 4px;
+    min-height: 215px; 
+
+}
+
+.app-item .header .build-status {
+	text-align: right;
+	padding-top:5px;
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.app-item .header .build-status .router-dropdown {
+	float: left;
+	cursor: pointer;
+}
+.app-item .header .build-status .router-dropdown:hover {
+	font-weight: bold;
+}
+
+.app-item .header .image {
+	padding-left:10px;
+	padding-top:14px;
+}
+
+.app-item .icon {
+    width: 120px; height: 120px;
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: 50%;
+}
+
+.app-item .header .left {
+	float: left;
+	width: 150px;
+}
+
+.app-item .header .right {
+	float: right;
+	width: auto;
+}
+
+
+.app-item .pod {
+	color:#fff;
+	font-size:26px;
+	font-weight: bold;
+}
+
+
+.app-item .pod span:last-child{
+	color:#fff;
+	font-size:14px;
+	font-weight: none;
+}
+
+
+.app-item ul.griditem  {
+	width: 95%;
+	padding:0px;
+}
+.app-item ul.griditem > li  {
+	list-style:none;
+} 
+
+.app-item ul.griditem > li:first-child {
+   	padding-bottom:10px;
+}
+
+
+.app-item ul.griditem > li:last-child {
+   	border: 0px solid black;
+   	border-bottom-width:1px;
+   	padding-bottom:10px;
+}
+
+.app-item ul.griditem > li a {
+	color:#fff;
+	font-size:24px;
+	font-weight: bold;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	overflow:hidden;
+}
+
+div.griditem1
+{
+    border: 1px solid black;
+    margin-left: -1px;
+    margin-bottom: -1px;
+}
+
+.app-item .header-color1 {
+    background: linear-gradient(141deg, #5709e3 0%, #6020d1 51%, #652fc5 75%);
+    color:white;
+    opacity:0.95;
+}
+
+
+.app-item .header-color1 ul,
+.app-item .header-color1 ul > li:last-child 
+{
+	color:#baa9e9;
+	border-bottom-color:#baa9e9;
+}
+
+
+.app-item .header-color2 {
+    background: linear-gradient(141deg, #fd7114 0%, #fe9909 51%, #ffaf03 75%);
+    color:white;
+    opacity:0.95;
+}
+
+
+.app-item .header-color2 ul,
+.app-item .header-color2 ul > li:last-child 
+{
+	color:#ffd3a5;
+	border-bottom-color:#ffd3a5;
+}
+
+
+.app-item .header-color3 {
+    background: linear-gradient(141deg, #0f95ff 0%, #44a8f7 51%, #63b3f2 75%);
+    color:white;
+    opacity:0.95;
+}
+
+.app-item .header-color3 ul,
+.app-item .header-color3 ul > li:last-child 
+{
+	color:#d2e7fd;
+	border-bottom-color:#d2e7fd;
+}
+
+.app-item .content {
+	position: relative;
+    border-bottom-left-radius : 15px;
+    border-bottom-right-radius : 15px;
+    background: #FFFFFF;
+    padding: 0; 
+
+}
+
+
+
+.app-item .info > div {
+	height:180px;
+
+}
+
+.app-item .content .graph {
+	
+   border: 0px solid black;
+   border-bottom-width:1px;
+   border-bottom-color:#ededed;
+   margin:0px;
+   padding:10px;
+
+}
+
+.app-item .content .graph:last-child  {
+   margin:0px;
+   padding-bottom:0px;
+   border-bottom-width:0px;
+}
+
+.app-item .content .graph > div:first-child  {
+  height:40px;	
+  padding-top:10px;	
+}
+
+.app-item .content .graph-container
+{
+	height:115px;
+}
+
+.app-item .info {
+   position: absolute;
+   top:30px;
+   z-index: 100;
+   width: 100%;
+   text-align: center;
+   pointer-events:none;
+}
+
+
+
+.app-item .content .info .percent {
+	font-size:35px;
+  	font-weight: bold;
+}
+
+.app-item .content .info .label  {
+	color:#a0a0a0;
+	margin:0;
+}
+
+.app-item .content .info .percent-color1 {
+	color:#652fc5;
+
+}
+
+.app-item .content .info .percent-color2 {
+	color:#fd7114;
+
+}
+
+.app-item .content .info .percent-color3 {
+	color:#1f95f2;
+
+}
+
+.app-item .content .info .percent > span:last-child {
+	font-size:15px;
+	color:#000;
+}
+
+.grid-color1 {
+    background: linear-gradient(141deg, #5709e3 0%, #6020d1 51%, #652fc5 75%);
+    color:white;
+    opacity:0.95;
+}
+
+.grid-color2 {
+    background: linear-gradient(141deg, #fd7114 0%, #fe9909 51%, #ffaf03 75%);
+    color:white;
+    opacity:0.95;
+}
+
+.grid-color3 {
+    background: linear-gradient(141deg, #0f95ff 0%, #44a8f7 51%, #63b3f2 75%);
+    color:white;
+    opacity:0.95;
+}
+
+
+.eyepie-color1 {
+  color: #652fc5 !important;
+}
+
+.eyepie-color2 {
+  color: #fd7114 !important;
+}
+
+.eyepie-color3 {
+  color: #1f95f2 !important;
+}
+
+
+
+
+

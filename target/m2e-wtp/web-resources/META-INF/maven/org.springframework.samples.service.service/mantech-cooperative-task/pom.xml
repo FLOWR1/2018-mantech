@@ -1,0 +1,491 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.springframework.samples.service.service</groupId>
+  <artifactId>mantech-cooperative-task</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<properties>
+		<java-version>1.8</java-version>
+		<org.springframework-version>4.3.1.RELEASE</org.springframework-version>
+		<spring.security.version>4.1.1.RELEASE</spring.security.version>
+		<org.aspectj-version>1.7.3</org.aspectj-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
+		<jstl.version>1.2</jstl.version>
+		<jackson.version>2.6.3</jackson.version>
+		<dom4j.version>1.6.1</dom4j.version>
+    	<generex.version>1.0.1</generex.version>
+    	<generex.bundle.version>1.0.1_1</generex.bundle.version>
+		<zjsonpatch.version>0.3.0</zjsonpatch.version>
+		<!-- build timestamp -->
+		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
+     	<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+	</properties>
+	
+	<repositories>
+  		<repository>
+    		<id>jitpack.io</id>
+    		<url>https://jitpack.io</url>
+  		</repository>
+ 	</repositories>
+	
+	<dependencies>
+	
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-websocket</artifactId>
+           <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+		<dependency>
+		  <groupId>org.springframework.security</groupId>
+		  <artifactId>spring-security-taglibs</artifactId>
+		  <version>${spring.security.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.j2html</groupId>
+    		<artifactId>j2html</artifactId>
+    		<version>1.0.0</version>
+		</dependency>
+
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>     
+		
+		<!-- Need this for json to/from object : JSON 파일 변환을 위한 라이브러리 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- gson에서 jodatime 시리얼라이즈를 위한 라이브러리 -->
+		<dependency>
+			<groupId>com.fatboyindustrial.gson-jodatime-serialisers</groupId>
+			<artifactId>gson-jodatime-serialisers</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		
+		<!-- JSON -->
+		<dependency>
+    		<groupId>net.sf.json-lib</groupId>
+    		<artifactId>json-lib-ext-spring</artifactId>
+    		<version>1.0.2</version>
+		</dependency>
+	
+		<!-- json 파일을 불러와서 json 객체로 파싱하기 위한 모쥴 -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+  
+  		<dependency>
+      		<groupId>org.apache.taglibs</groupId>
+      		<artifactId>taglibs-standard-spec</artifactId>
+      		<version>1.2.5</version>
+    		</dependency>
+    	<dependency>
+      		<groupId>org.apache.taglibs</groupId>
+      		<artifactId>taglibs-standard-impl</artifactId>
+      		<version>1.2.5</version>
+    	</dependency>
+    
+   		<!-- Postgresql DB에 대한 JDBC와 Mybatis 라이브러리 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.3-1102-jdbc4</version>
+		</dependency>
+		
+
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+    		<groupId>org.apache.httpcomponents</groupId>
+    		<artifactId>httpclient</artifactId>
+    		<version>4.5.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>2.5</version>
+		</dependency>
+ 
+		<dependency>
+    		<groupId>commons-fileupload</groupId>
+    		<artifactId>commons-fileupload</artifactId>
+    		<version>1.2.2</version>
+		</dependency>
+		
+      	<dependency>
+        	<groupId>dom4j</groupId>
+        	<artifactId>dom4j</artifactId>
+        	<version>${dom4j.version}</version>
+      	</dependency>
+		
+		<!-- Jenkins Model 
+		<dependency>
+		  <groupId>com.offbytwo.jenkins</groupId>
+		  <artifactId>jenkins-client</artifactId>
+		  <version>0.3.7</version>
+		</dependency>
+		-->
+		<!-- https://mvnrepository.com/artifact/org.jdom/jdom2 -->
+		<!-- Jenkins JobXML을 편집하기 위한 xml 생성 라이브러리 -->
+		<dependency>
+		    <groupId>org.jdom</groupId>
+		    <artifactId>jdom2</artifactId>
+		    <version>2.0.6</version>
+		</dependency>	
+		
+		<dependency>
+  			<groupId>org.influxdb</groupId>
+  			<artifactId>influxdb-java</artifactId>
+  			<version>2.5</version>
+		</dependency>		
+
+ 		<dependency>
+    		<groupId>com.hubspot.jinjava</groupId>
+    		<artifactId>jinjava</artifactId>
+    		<version> 2.2.0</version>
+  		</dependency>
+  		
+  		<dependency>
+    		<groupId>org.kamranzafar</groupId>
+    		<artifactId>jtar</artifactId>
+    		<version>2.3</version>
+  		</dependency>
+
+		<!-- Elasticsearch client -->
+		<dependency>
+		    <groupId>org.elasticsearch.client</groupId>
+		    <artifactId>rest</artifactId>
+		    <version>5.4.1</version>
+		</dependency>
+		
+		<dependency><!-- Use this dependency in your licensed application -->
+         <groupId>net.nicholaswilliams.java.licensing</groupId>
+         <artifactId>licensing-core</artifactId>
+         <version>1.1.0</version>
+     	</dependency>
+     	<dependency><!-- Use this dependency in the application that you generate licenses with -->
+         <groupId>net.nicholaswilliams.java.licensing</groupId>
+         <artifactId>licensing-licensor-base</artifactId>
+         <version>1.1.0</version>
+     	</dependency>
+		
+		<!-- library for encryption -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+		</dependency>
+        
+		<!-- kubernetes java client library : openshift -->
+		<dependency>
+    		<groupId>io.fabric8</groupId>
+    		<artifactId>kubernetes-client</artifactId>
+    		<version>2.6.3</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.fabric8</groupId>
+    		<artifactId>openshift-client</artifactId>
+    		<version>2.6.1</version>
+		</dependency> 
+		
+		<dependency>
+			<groupId>io.kubernetes</groupId>
+			<artifactId>client-java</artifactId>
+			<version>1.0.0-beta2</version>
+		</dependency>
+		
+		<dependency>
+        	<groupId>javax.mail</groupId>
+           	<artifactId>mail</artifactId>
+           	<version>1.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.navercorp.lucy</groupId>
+			<artifactId>lucy-xss</artifactId>
+			<version>1.6.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/co.elastic.apm/apm-agent-java -->
+		<dependency>
+		    <groupId>co.elastic.apm</groupId>
+		    <artifactId>apm-agent-java</artifactId>
+		    <version>0.1.2</version>
+		</dependency>
+				
+		
+		<!-- https://mvnrepository.com/artifact/co.elastic.apm/elastic-apm-agent -->
+		<dependency>
+		    <groupId>co.elastic.apm</groupId>
+		    <artifactId>elastic-apm-agent</artifactId>
+		    <version>0.5.1</version>
+		</dependency>
+		
+		<!-- Elasticsearch -->
+		<dependency>
+		    <groupId>org.elasticsearch</groupId>
+		    <artifactId>elasticsearch</artifactId>
+		    <version>6.3.0</version>
+		</dependency>
+		
+		<!-- Elasticsearch REST Client -->
+		<dependency>
+		    <groupId>org.elasticsearch.client</groupId>
+		    <artifactId>elasticsearch-rest-client</artifactId>
+		    <version>6.3.0</version>
+		</dependency>
+		
+		<!-- Elasticsearch Java Client -->
+		<dependency>
+		    <groupId>org.elasticsearch.client</groupId>
+		    <artifactId>transport</artifactId>
+		    <version>6.3.0</version>
+		</dependency>
+				
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<additionalProjectnatures>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+					</additionalProjectnatures>
+					<additionalBuildcommands>
+						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+					</additionalBuildcommands>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<mainClass>org.test.int1.Main</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<!-- <dependencies>
+	
+		Spring MVC
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		Other Web dependencies
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	
+		Spring and Transactions
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		Logging with SLF4J & LogBack
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		Hibernate
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		
+		Test Artifacts
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>	 -->
+</project>
